@@ -10,7 +10,8 @@ In this project
 
 * News articles are extracted with the help of a lambda function which is triggered every 1 hr using Event bridge.
 
-* The raw data extrated are pushed to a S3 bucket and stored in json format 
+* The raw data extrated are pushed to a S3 bucket and stored in json format
+  ![](https://github.com/ansel9618/ML_ECS_pipeline/blob/main/images/10.0_.png)
 
 * News description are then analyzed using the using NLTK python library w.r.t the news article topic 
 
