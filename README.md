@@ -6,31 +6,23 @@ A ML containerisation project which makes use of ECS to deploy a streamlit app w
 
 Completed a automated pipeline using AWS Eventbridge,lambda,DynamoDB,s3 & snowflake.
 
-![Architecture](https://github.com/ansel9618/AWS_Dynamo_lambda_Snowflake_Pipeline/blob/main/images/aws_dynamo_snowflake_pipeline.png)
+![Architecture](https://github.com/ansel9618/ML_ECS_pipeline/blob/main/images/Architecture.png)
 
-In this pipeline:
+In this project
 
-* First we created a weather api and got the api key
+* We are making use of a NewsAPI where we get the latest news articles with help of a API_Key obtained from the news api website
+  after creating a developer account
 
-* A python script was deployed in a lambda function which is triggered every 1 hr
-  with the help of aws cloudwatch-eventbridge.
+-News articles are extracted with the help of a lambda function which is triggered every 1 hr using Event bridge.
 
-* The first lambda lambda function will take data from weather api and store it in Dynamodb table.
+-The raw data extrated are pushed to a S3 bucket and stored in json format 
 
-* Once data is populated in dynamodb ,a dynamodbstream is set to start automatically and 
-  the stream will be processed by second lambda function which will push to a S3 bucket
+-News description are then analyzed using the using NLTK python library w.r.t the news article topic 
 
-* For s3 and snowflake to interact a storage integration needs to be created in snowflake
-  and should have a connection to IAM which can be estabished using the role ARN and 
-  IAM_USER_ARN and the External_ID specified by the storage integration.
+-Based on the news sentiment a positive or negative score is assigned to the news aritcle which is pushed to a rds postgres AWS instance along with timestamp.
 
-* Snowflake external stage can be created using the storage integration name, 
-  which allows access to the data in the S3 bucket(external stage) through the IAM role.
+-Now a Dashboard is created using Streamlit to visualize the sentiment of the news in local system which is then converted to a docker image and pushed to ECR Registry in AWS.
 
-* S3 bucket when populated will send a notification via SQS to snowpipe 
-  which is created using the external stage name
-  (Note:-here a event notification needs to be created in s3 bucket with the notification
-  channel sqs of the snowpipe created)
+-The uploaded image is run using a AWS Fargate cluster by create a task definition and using the publicIP and assigned port
+we can access the Streamlit Dashboard.
 
-* Snowpipe once notified will ingest data from S3(external stage) & populate the data
-  in weather_table in snowflake db
