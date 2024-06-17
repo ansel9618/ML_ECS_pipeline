@@ -15,7 +15,9 @@ In this project
 * News description are then analyzed using the using NLTK python library w.r.t the news article topic 
 
 * Based on the news sentiment a positive or negative score is assigned to the news aritcle which is pushed to a rds postgres AWS instance along with timestamp.
-
+  ![](https://github.com/ansel9618/ML_ECS_pipeline/blob/main/images/1.0_.png)
+  ![](https://github.com/ansel9618/ML_ECS_pipeline/blob/main/images/9.0_.png)
+  
 * Now a Dashboard is created using Streamlit to visualize the sentiment of the news in local system which is then converted to a docker image and pushed to ECR Registry in AWS.
 
 * The uploaded image is run using a AWS Fargate cluster by create a task definition and using the publicIP and assigned port
