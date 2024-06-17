@@ -23,6 +23,7 @@ In this project
 * Now a Dashboard is created using Streamlit to visualize the sentiment of the news in local system which is then converted to a docker image and pushed to ECR Registry in AWS.
   ![](https://github.com/ansel9618/ML_ECS_pipeline/blob/main/images/4.0_.png)
   ![](https://github.com/ansel9618/ML_ECS_pipeline/blob/main/images/5.0_.png)
+  ![](https://github.com/ansel9618/ML_ECS_pipeline/blob/main/images/11.0_.png)
 
 * The uploaded image is run using a AWS Fargate cluster by create a task definition and using the publicIP and assigned port
   we can access the Streamlit Dashboard.
