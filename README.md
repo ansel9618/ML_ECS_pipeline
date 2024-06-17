@@ -13,9 +13,10 @@ In this project
 * The raw data extrated are pushed to a S3 bucket and stored in json format
   ![](https://github.com/ansel9618/ML_ECS_pipeline/blob/main/images/10.0_.png)
 
-* News description are then analyzed using the using NLTK python library w.r.t the news article topic 
+* News description are then analyzed using the using NLTK python library w.r.t the news article topic and based on the news sentiment a positive or negative score is assigned.
+  ![](https://github.com/ansel9618/ML_ECS_pipeline/blob/main/images/3.0_.png)
 
-* Based on the news sentiment a positive or negative score is assigned to the news aritcle which is pushed to a rds postgres AWS instance along with timestamp.
+* Analyzed  news aritcle are pushed to a rds postgres AWS instance along with timestamp.
   ![](https://github.com/ansel9618/ML_ECS_pipeline/blob/main/images/1.0_.png)
   ![](https://github.com/ansel9618/ML_ECS_pipeline/blob/main/images/9.0_.png)
   
