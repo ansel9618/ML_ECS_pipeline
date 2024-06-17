@@ -1,0 +1,7 @@
+CREATE TABLE newss_analytics(
+	Id SERIAL PRIMARY KEY,
+	author varchar(50),
+	description varchar(700),
+	sentiment_score double precision,
+	timestamp varchar(20)
+	)
